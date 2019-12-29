@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ZlitegenxControlDialog</class>
+ <widget class="QDialog" name="ZlitegenxControlDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>681</width>
+    <height>384</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>681</width>
+    <height>384</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Select zlitegenx to Spend</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+  background-color: #fdf7ea;
+  color: #050044;
+}
+QValidatedLineEdit,
+QLineEdit,
+QTextEdit {
+  font-size: 12px;
+  min-height: 25px;
+  outline: 0;
+  padding: 3px;
+  border: 1px;
+  color: #333;
+ background-color: #ffffff;
+  border-radius: 15px;
+}
+
+QValidatedLineEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+QValueComboBox {
+  padding: 3px 5px 3px 5px;
+  background: #fcfcfc;
+  font-size: 12px;
+  min-height: 25px;
+  outline: 0;
+  padding: 3px;
+  border: 0px;
+  color: #333;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+QValueComboBox: !focus {
+  color: #5c4c7c;
+  background-color: #e7e7e7;
+}
+QLineEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+
+QTextEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+
+/* .QValidatedLineEdit:checked, .QLineEdit:checked */
+
+QValidatedLineEdit:disabled,
+.QLineEdit:disabled,
+.QTextEdit:disabled {
+  color: #333;
+  background-color: #f2f2f2;
+}
+
+.QPlainTextEdit {
+  background-color: #f2f2f2;
+}
+QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QFormLayout" name="formLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelQuantity">
+       <property name="text">
+        <string>Quantity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="labelQuantity_int">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="labelZlitegenx">
+       <property name="text">
+        <string>zlitegenx</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="labelZlitegenx_int">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButtonAll">
+       <property name="styleSheet">
+        <string notr="true">QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+       </property>
+       <property name="text">
+        <string>Select/Deselect All</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>250</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 0;
+  background-color: transparent;</string>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="columnCount">
+        <number>5</number>
+       </property>
+       <attribute name="headerDefaultSectionSize">
+        <number>100</number>
+       </attribute>
+       <column>
+        <property name="text">
+         <string notr="true">Select</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">Denomination</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">zlitegenx Public ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">Confirmations</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Is Spendable</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="styleSheet">
+        <string notr="true">QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Ok</set>
+       </property>
+       <property name="centerButtons">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ZlitegenxControlDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ZlitegenxControlDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ReceiveRequestDialog</class>
+ <widget class="QDialog" name="ReceiveRequestDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>527</width>
+    <height>597</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+  background-color: transparent;
+  color: #050044;
+  border:0;
+}
+QValidatedLineEdit,
+QLineEdit,
+QTextEdit {
+  font-size: 12px;
+  min-height: 25px;
+  outline: 0;
+  padding: 3px;
+  border: 1px;
+  color: #333;
+ background-color: #ffffff;
+  border-radius: 15px;
+}
+
+QValidatedLineEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+QValueComboBox {
+  padding: 3px 5px 3px 5px;
+  background: #fcfcfc;
+  font-size: 12px;
+  min-height: 25px;
+  outline: 0;
+  padding: 3px;
+  border: 0px;
+  color: #333;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+QValueComboBox: !focus {
+  color: #5c4c7c;
+  background-color: #e7e7e7;
+}
+QLineEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+
+QTextEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+
+/* .QValidatedLineEdit:checked, .QLineEdit:checked */
+
+QValidatedLineEdit:disabled,
+.QLineEdit:disabled,
+.QTextEdit:disabled {
+  color: #333;
+  background-color: #f2f2f2;
+}
+
+.QPlainTextEdit {
+  background-color: #f2f2f2;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QRImageWidget" name="lblQRCode">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>300</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>QR Code</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="outUri">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btnCopyURI">
+       <property name="styleSheet">
+        <string notr="true">QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+       </property>
+       <property name="text">
+        <string>Copy &amp;URI</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCopyAddress">
+       <property name="styleSheet">
+        <string notr="true">QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+       </property>
+       <property name="text">
+        <string>Copy &amp;Address</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSaveAs">
+       <property name="styleSheet">
+        <string notr="true">QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+       </property>
+       <property name="text">
+        <string>&amp;Save Image...</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="styleSheet">
+        <string notr="true">QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Close</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QRImageWidget</class>
+   <extends>QLabel</extends>
+   <header>receiverequestdialog.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ReceiveRequestDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>573</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>243</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ReceiveRequestDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>573</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>243</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

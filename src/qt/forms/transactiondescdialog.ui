@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TransactionDescDialog</class>
+ <widget class="QDialog" name="TransactionDescDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>620</width>
+    <height>250</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Transaction details</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+  background-color: #fdf7ea;
+  color: #050044;
+}
+QValidatedLineEdit,
+QLineEdit,
+QTextEdit {
+  font-size: 12px;
+  min-height: 25px;
+  outline: 0;
+  padding: 3px;
+  border: 1px;
+  color: #333;
+ background-color: #ffffff;
+  border-radius: 15px;
+}
+
+QValidatedLineEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+QValueComboBox {
+  padding: 3px 5px 3px 5px;
+  background: #fcfcfc;
+  font-size: 12px;
+  min-height: 25px;
+  outline: 0;
+  padding: 3px;
+  border: 0px;
+  color: #333;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+QValueComboBox: !focus {
+  color: #5c4c7c;
+  background-color: #e7e7e7;
+}
+QLineEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+
+QTextEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+
+/* .QValidatedLineEdit:checked, .QLineEdit:checked */
+
+QValidatedLineEdit:disabled,
+.QLineEdit:disabled,
+.QTextEdit:disabled {
+  color: #333;
+  background-color: #f2f2f2;
+}
+
+.QPlainTextEdit {
+  background-color: #f2f2f2;
+}
+QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTextEdit" name="detailText">
+     <property name="toolTip">
+      <string>This pane shows a detailed description of the transaction</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QValidatedLineEdit,
+QLineEdit,
+QTextEdit {
+  border: 0;
+  font-size: 12px;
+  min-height: 25px;
+  outline: 0;
+  padding: 3px;
+  border: 1px;
+  color: #333;
+ background-color: #ffffff;
+  border-radius: 15px;
+}
+
+QValidatedLineEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+QValueComboBox {
+  padding: 3px 5px 3px 5px;
+  background: #fcfcfc;
+  font-size: 12px;
+  min-height: 25px;
+  outline: 0;
+  padding: 3px;
+  border: 0px;
+  color: #333;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+QValueComboBox: !focus {
+  color: #5c4c7c;
+  background-color: #e7e7e7;
+}
+QLineEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+
+QTextEdit: !focus {
+  color: #333;
+  background-color: #e7e7e7;
+}
+
+/* .QValidatedLineEdit:checked, .QLineEdit:checked */
+
+QValidatedLineEdit:disabled,
+.QLineEdit:disabled,
+.QTextEdit:disabled {
+  color: #333;
+  background-color: #f2f2f2;
+}
+
+.QPlainTextEdit {
+  background-color: #f2f2f2;
+}</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="styleSheet">
+      <string notr="true">QDialogButtonBox,
+QPushButton {
+  background-color: #fdc14f;
+  padding: 0.85em 2em;
+  letter-spacing: 1px;
+  color: #000000;
+  font-size: 12px;
+  border-radius: 20px;
+}
+QPushButton:hover {
+  background-color: #fb9803;
+}
+QPushButton:focus {
+  border: none;
+  outline: none;
+}
+QPushButton:pressed {
+  border: 1px solid #ff7300;
+}
+
+QPushButton:disabled {
+  border: 1px solid #aaaaaa;
+  background-color: #bbbbbb;
+}</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Close</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>TransactionDescDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>TransactionDescDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

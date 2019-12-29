@@ -1,0 +1,3 @@
+usr/local/bin/litegenxd usr/bin
+usr/local/bin/litegenx-cli usr/bin
+debian/examples/litegenx.conf etc/litegenx

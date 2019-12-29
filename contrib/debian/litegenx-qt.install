@@ -1,0 +1,6 @@
+usr/local/bin/litegenx-qt usr/bin
+share/pixmaps/litegenx32.xpm usr/share/pixmaps
+share/pixmaps/litegenx16.xpm usr/share/pixmaps
+share/pixmaps/litegenx128.png usr/share/pixmaps
+debian/litegenx-qt.desktop usr/share/applications
+debian/litegenx-qt.protocol usr/share/kde4/services/

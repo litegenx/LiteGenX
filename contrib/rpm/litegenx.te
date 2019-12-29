@@ -1,0 +1,81 @@
+policy_module(litegenx, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type litegenx_t;
+type litegenx_exec_t;
+init_daemon_domain(litegenx_t, litegenx_exec_t)
+
+permissive litegenx_t;
+
+type litegenx_initrc_exec_t;
+init_script_file(litegenx_initrc_exec_t)
+
+type litegenx_conf_t;
+files_type(litegenx_conf_t)
+
+type litegenx_var_lib_t;
+files_type(litegenx_var_lib_t)
+
+type litegenx_var_run_t;
+files_type(litegenx_var_run_t)
+
+type litegenx_port_t;
+corenet_port(litegenx_port_t)
+
+########################################
+#
+# litegenx local policy
+#
+allow litegenx_t self:process { fork };
+
+allow litegenx_t self:fifo_file rw_fifo_file_perms;
+allow litegenx_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(litegenx_t, litegenx_conf_t, litegenx_conf_t)
+manage_files_pattern(litegenx_t, litegenx_conf_t, litegenx_conf_t)
+
+manage_dirs_pattern(litegenx_t, litegenx_var_lib_t, litegenx_var_lib_t)
+manage_files_pattern(litegenx_t, litegenx_var_lib_t, litegenx_var_lib_t)
+files_var_lib_filetrans(litegenx_t, litegenx_var_lib_t, { dir file })
+
+manage_dirs_pattern(litegenx_t, litegenx_var_run_t, litegenx_var_run_t)
+manage_files_pattern(litegenx_t, litegenx_var_run_t, litegenx_var_run_t)
+
+sysnet_dns_name_resolve(litegenx_t)
+corenet_all_recvfrom_unlabeled(litegenx_t)
+
+allow litegenx_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(litegenx_t)
+corenet_tcp_sendrecv_generic_node(litegenx_t)
+corenet_tcp_sendrecv_all_ports(litegenx_t)
+corenet_tcp_bind_generic_node(litegenx_t)
+
+gen_require(`
+    type litegenx_port_t;
+')
+allow litegenx_t litegenx_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type litegenx_port_t;
+')
+allow litegenx_t litegenx_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(litegenx_t)
+
+files_read_etc_files(litegenx_t)
+
+miscfiles_read_localization(litegenx_t)
+
+sysnet_dns_name_resolve(litegenx_t)
+
+allow litegenx_t litegenx_exec_t:file execute_no_trans;
+allow litegenx_t self:process setsched;
+corecmd_exec_ls(litegenx_t)
+corenet_tcp_connect_http_port(litegenx_t)
+dev_read_urand(litegenx_t)
+fs_getattr_xattr_fs(litegenx_t)
+kernel_read_system_state(litegenx_t)
