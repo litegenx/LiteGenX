@@ -53,7 +53,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of(0, uint256("0x00000dbfcd47d34b0d509279ca88548ae38b47a2c3a0a828aa3b6c0d5e2415d7"));
+    boost::assign::map_list_of(0, uint256("0x0000034dcafe7ecf6822ea4eaf1fa9b015befb792b11c12543fba01e9422015e"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1574580529, // * UNIX timestamp of last checkpoint block
@@ -120,7 +120,7 @@ public:
         nModifierUpdateBlock = 200;
         nZerocoinStartHeight = 200;
         nAccumulatorStartHeight = 1;
-        nZerocoinStartTime = 1574580529;
+        nZerocoinStartTime = 1577895516;
         nBlockEnforceSerialRange = 1;       //Enforce serial range starting this block
         nBlockRecalculateAccumulators = ~1; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = ~1;         //First block that bad serials emerged
@@ -147,12 +147,12 @@ public:
         genesis.hashPrevBlock.SetNull();
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1577510201;
+        genesis.nTime = 1577895516;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 22594349;
+        genesis.nNonce = 21501949;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256S("0x00000dbfcd47d34b0d509279ca88548ae38b47a2c3a0a828aa3b6c0d5e2415d7"));
+        assert(hashGenesisBlock == uint256S("0x0000034dcafe7ecf6822ea4eaf1fa9b015befb792b11c12543fba01e9422015e"));
         assert(genesis.hashMerkleRoot == uint256S("0x530a0e350f8c5064f84ce0124d366e77e1126113aefe93b1ec93d0c58a907f42"));
 
         // DNS Seeding
